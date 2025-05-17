@@ -49,7 +49,9 @@ export const signup = async (req, res) => {
         // jwt
         generateTokenAndSetCookie(res, user._id);
 
-        await sendVerificationEmail(user.email, verificationToken);
+        // -----to send email but with mailtrap and no dedicated domain, only one account would recieve
+        // await sendVerificationEmail(user.email, verificationToken);
+        user.isVerified = true;
 
         res.status(201).json({
             success: true,
