@@ -44,6 +44,7 @@ export const signup = async (req, res) => {
             verificationTokenExpiresAt: Date.now() + 24 * 60 * 60 * 1000, // 24 hours
         });
 
+        user.isVerified = true;
         await user.save();
 
         // jwt
@@ -51,7 +52,7 @@ export const signup = async (req, res) => {
 
         // -----to send email but with mailtrap and no dedicated domain, only one account would recieve
         // await sendVerificationEmail(user.email, verificationToken);
-        user.isVerified = true;
+        
 
         res.status(201).json({
             success: true,
