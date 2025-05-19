@@ -8,6 +8,8 @@ import { connectDB } from "./db/connectDB.js";
 
 import authRoutes from "./routes/auth.route.js";
 import investmentsRoutes from "./routes/investments.route.js";
+import flutterwavesRoutes from "./routes/flutterwave.route.js";
+
 
 // flutterwave
 import Flutterwave from 'flutterwave-node-v3';
@@ -30,6 +32,8 @@ app.get('/musa', (req, res) => {
 
 app.use("/api/auth", authRoutes);
 app.use("/api/investments", investmentsRoutes);
+app.use("/api/flutterwave", flutterwavesRoutes);
+
 
 
 
